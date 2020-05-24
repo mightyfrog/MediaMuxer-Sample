@@ -5,6 +5,7 @@ import android.media.MediaExtractor
 import android.media.MediaMuxer
 import android.os.Bundle
 import android.os.Environment
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.fab
 import kotlinx.android.synthetic.main.activity_main.toolbar
@@ -104,5 +105,7 @@ class MainActivity : AppCompatActivity() {
         }
         muxer.stop()
         muxer.release()
+
+        Toast.makeText(this, R.string.download_complete, Toast.LENGTH_SHORT).show();
     }
 }
