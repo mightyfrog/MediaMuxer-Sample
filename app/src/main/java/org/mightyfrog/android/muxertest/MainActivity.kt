@@ -5,10 +5,10 @@ import android.media.MediaExtractor
 import android.media.MediaMuxer
 import android.os.Bundle
 import android.os.Environment
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.fab
 import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.content_main.textView
 import java.io.File
 import java.nio.ByteBuffer
 
@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         var finished = false
-        val bufferSize: Int = 256 * 1024
-        val offset = 100
+        val bufferSize: Int = 1024 * 1024 // increase buffer size if readSampleData fails
+        val offset = 0
         val audioBuffer = ByteBuffer.allocate(bufferSize)
         val videoBuffer = ByteBuffer.allocate(bufferSize)
         val audioBufferInfo = MediaCodec.BufferInfo()
@@ -106,6 +106,6 @@ class MainActivity : AppCompatActivity() {
         muxer.stop()
         muxer.release()
 
-        Toast.makeText(this, R.string.download_complete, Toast.LENGTH_SHORT).show();
+        textView.text = getString(R.string.download_complete, "$id.mp4")
     }
 }

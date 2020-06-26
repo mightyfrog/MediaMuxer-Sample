@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Muxer Test</string>
-    <string name="text">Tap FAB to start downloading</string>
-    <string name="download_complete">Download complete</string>
+    <string name="text">Tap FAB to start downloading (blocks UI)</string>
+    <string name="download_complete">Download complete\n$internal_storage/%1$s</string>
 </resources>
